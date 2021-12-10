@@ -1,0 +1,16 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+<h1>Search Results</h1>
+<ul>
+  {% if search_list %}
+    {% for person in search_list %}
+      <li>
+        <a href="{% url 'patient-detail' person.pk %}"> {{person.first_name }} {{person.last_name}} </a>
+      </li>
+    {% endfor %}
+  {% else %}
+  <p> Sorry, it seems the clinic has no record of any Patient with the name: <strong>{{query}}</strong></p>
+  {% endif %}
+</ul>
+{% endblock %}

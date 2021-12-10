@@ -1,0 +1,64 @@
+body {
+    
+    background-image: url('doctor-image.png');
+    background-size: cover;
+}
+
+
+
+h1{
+    text-align: center;
+    font-size: 400%;
+}
+
+
+/*
+The following CSS has been taken from the following : 
+https://stackoverflow.com/questions/8357058/how-to-make-a-href-link-look-like-a-button
+
+display: block;
+    text-decoration: none;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+*/
+
+.buttons{
+    padding:350px;
+    text-align: center;
+}
+
+.signup-button{
+    display: block;
+    text-decoration: none;
+    width: 115px;
+    height: 25px;
+    background: #32a875;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.login-button {
+    display: block;
+    text-decoration: none;
+    width: 115px;
+    height: 25px;
+    background: #32a875;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+  

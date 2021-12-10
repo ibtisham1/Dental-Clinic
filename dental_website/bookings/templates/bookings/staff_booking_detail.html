@@ -1,0 +1,35 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+  <h1>Title: {{ booking.title }}</h1>
+
+  <p><strong>Importance:</strong> {{ booking.importance }}</p>
+  <p><strong>Notes:</strong> {{ booking.notes }}</p>
+  <p><strong>ID:</strong> {{ booking.id }}</p>
+  <p><strong>Patient:</strong> {{ booking.patient }}</p>
+  <p><strong>Doctor:</strong> {{ booking.doctor }}</p>
+  <p><strong>Assistant:</strong> {{ booking.assistant }}</p>
+
+<a href="{% url 'bookings:Cancel-Booking' booking.id %}" onclick="return confirm('Are you sure you want to cancel this booking?')" </a>{Cancel This Booking}</a>
+
+
+
+{% if role == "receptionist" %}
+  <a href="{% url 'bookings:Edit-Booking-View' booking.id %}">{Edit This Booking}</a>
+
+  {% if booking.approved  %}
+  {% else %}
+     <a href="{% url 'bookings:Approve-Booking' booking.id %}">{Approve This Booking}</a>
+  {% endif %}
+
+  {% if booking.assistant == none  %}
+
+      <a href="{% url 'bookings:assign' booking.id %}">{Assign an Assistant}</a>
+
+  {% endif %}
+{% endif %}
+
+{% endblock %}
+
+
+

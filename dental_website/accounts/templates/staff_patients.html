@@ -1,0 +1,17 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+    <h1>Patient List</h1>
+
+    {% if patient_list_obj %}
+    <ul>
+      {% for patient in patient_list_obj %}
+      <li>
+        <a href="{% url 'patient-detail' patient.pk %}">{{patient.user.last_name}}, {{patient.user.first_name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>I can't seem to find any patients, everyone is healthy :-).</p>
+    {% endif %}
+{% endblock %}

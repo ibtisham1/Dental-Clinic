@@ -1,0 +1,19 @@
+{% block content %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/topBarStyle.css'%}">
+<body></body>
+<div class="main">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Update">
+    </form>
+
+</div>
+{%endblock%}
+

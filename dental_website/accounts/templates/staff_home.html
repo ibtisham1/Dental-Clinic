@@ -1,0 +1,100 @@
+{% extends "staff_base.html" %}
+
+{% block sideblock %}
+
+        <tr>
+          <td>
+            <a class="btn btn-success btn-lg btn-block" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+
+          </td>
+        </tr>
+
+{% endblock %}
+          
+
+{% block content %}
+
+    {% if role == 'receptionist' %}
+        <div class="header">
+            <h1>Welcome receptionist, {{user.first_name}}</h1>
+        </div>
+
+        <div class="subtitle">
+            <h3>Here is your Dashboard!</h3>
+        </div>
+       
+        
+    {% endif %}
+
+    {% if role == 'dentist' %}
+        <div class="header">
+            <h1>Welcome Dr. {{user.first_name}}</h1>
+        </div>
+
+        <div class="subtitle">
+            <h3>Here is your Dashboard!</h3>
+        </div>
+       
+        
+    {% endif %}
+
+
+    {% if role == 'assistant' %}
+        <div class="header">
+            <h1>Welcome assistant, {{user.first_name}}</h1>
+        </div>
+
+        <div class="subtitle">
+            <h3>Here is your Dashboard!</h3>
+        </div>
+       
+        
+    {% endif %}
+
+
+    
+
+    
+    
+    {% if booking_list %}
+        {% if role == 'receptionist' %}
+            <div class="information">
+                <p>There are {{num_bookings}} appointments today!</p>
+                <Strong>Here is the clinic schedule for today:</Strong>
+                <p> Currently there are {{unapproved_count}} unapproved bookings</p>
+            </div>
+            
+        {% else %}
+        <div class="information">
+            <p>There are {{num_bookings}} appointments booked with you today!</p>
+            <Strong>Here is your schedule for today:</Strong>
+        </div>
+            
+        {% endif %}
+
+        <ul class="list-group list-group-flush">
+          {% for booking in booking_list %}
+          <li class="list-group-item"> {{booking.title}}:
+            <a href="{% url 'bookings:staff-booking-detail' booking.pk %}">Booking with {{booking.patient}} at {{booking.date}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+    {% else %}
+        {% if role == 'receptionist' %}
+
+        <div class="information">
+            <p> Today, it appears the clinic have no bookings scheduled.</p>
+        </div>
+            
+
+
+        {% else %}
+        <div class="information">
+            <p> Today, it appears you have no bookings scheduled.</p>
+        </div>
+            
+        {% endif %}
+
+    {% endif %}
+
+{% endblock %}

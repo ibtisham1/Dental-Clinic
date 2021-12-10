@@ -1,0 +1,13 @@
+{% block content %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/topBarStyle.css'%}">
+<body></body>
+
+
+<form action="{% url 'bookings:create_booking' patient.pk%}" method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='Save' class="btn btn-block btn-primary" />
+</form>
+{%endblock%}

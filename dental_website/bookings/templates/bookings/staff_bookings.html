@@ -1,0 +1,35 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+
+    {% if role == "assistant" %}
+        <h1>Assigned Bookings</h1>
+    {% else %}
+        <h1>All Bookings</h1>
+    {% endif %}
+
+   <h2>Future Bookings</h2>
+    {% if upcoming %}
+    <ul>
+      {% for booking in upcoming %}
+      <li>{{booking.title}}:
+        <a href="{% url 'bookings:staff-booking-detail' booking.pk %}">Booking with {{booking.patient}} at {{booking.date}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>{{user.first_name}}, you currently have no future bookings scheduled.</p>
+    {% endif %}
+    <h2>Completed Appointments</h2>
+        {% if previous %}
+        <ul>
+          {% for b in previous %}
+          <li>{{b.title}}:
+            <a href="{% url 'bookings:staff-booking-detail' b.pk %}">Booking with {{b.patient}} at {{b.date}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+          <p>{{user.first_name}}, you have not completed any bookings as of yet.</p>
+        {% endif %}
+{% endblock %}

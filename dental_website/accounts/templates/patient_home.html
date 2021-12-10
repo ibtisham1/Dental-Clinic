@@ -1,0 +1,42 @@
+{% extends "patient_base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+    <title>Home</title>
+</head>
+
+{% block sideblock %}
+
+        <tr>
+            <td>
+              <a class="btn btn-success btn-lg btn-block" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+            </td>
+        </tr>
+
+{% endblock %}}
+
+{% block content %}
+
+<body>
+   
+    <div class="header">Welcome  {{user.first_name}},</div>
+    <div class="sub-title">This is your Dental Clinic Dashboard</div>
+    <div class="description">Thank you for choosing Uncle Sam's!</div>
+
+</body>
+
+
+
+
+
+
+</html>
+
+{% endblock %}

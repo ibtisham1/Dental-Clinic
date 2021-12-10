@@ -1,0 +1,13 @@
+body{
+    background-image: url('doctor-patient.png');
+    background-size: cover;
+}
+
+p{
+    font-size: 200%;
+    text-align: center;
+}
+
+.button{
+    text-align: center;
+}

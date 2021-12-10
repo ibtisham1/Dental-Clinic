@@ -1,0 +1,9 @@
+
+{% extends "patient_base.html" %}
+{% block content %}
+
+    <h1>Sorry {{user.first_name}}, your booking has failed.</h1>
+    <p>The specified Dentist is already busy during this time period! Please try again</p>
+    <li><a href="{% url 'bookings:Booking-View' %}">Reschedule</a></li>
+
+{% endblock %}

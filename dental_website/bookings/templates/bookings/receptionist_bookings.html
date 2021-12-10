@@ -1,0 +1,46 @@
+{% extends "staff_base.html" %}
+
+
+{% block content %}
+    <h1>Clinic Bookings List</h1>
+
+    <h2>Future Bookings</h2>
+    {% if upcoming %}
+    <ul>
+      {% for booking in upcoming %}
+      <li>{{booking.title}}:
+          <a href="{% url 'bookings:staff-booking-detail' booking.pk %}">Booking with {{booking.patient}} at {{booking.date}}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>{{user.first_name}}, you currently have no future bookings scheduled</p>
+    {% endif %}
+
+    <h2>Completed Appointments</h2>
+        {% if previous %}
+        <ul>
+          {% for b in previous %}
+          <li>{{b.title}}:
+            <a href="{% url 'bookings:staff-booking-detail' b.pk %}">Booking with {{b.patient}} at {{b.date}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+          <p>{{user.first_name}}, There have been no completed bookings as of yet.</p>
+        {% endif %}
+
+    <h2>Unapproved Appointments</h2>
+            {% if unapproved %}
+            <ul>
+              {% for book in unapproved %}
+              <li>{{book.title}}:
+                <a href="{% url 'bookings:staff-booking-detail' book.pk %}">Booking with {{book.patient}} at {{book.date}}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% else %}
+              <p>{{user.first_name}}, you currently have no unapproved bookings scheduled.</p>
+        {% endif %}
+{% endblock %}

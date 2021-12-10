@@ -1,0 +1,20 @@
+body{
+    background-image: url('verification-image.png');
+    background-size: cover;
+}
+
+.header{
+    padding: 50px;
+    font-size: 250%;
+    text-align: center;
+}
+
+h2{
+    font-size: 150%;
+    text-align: center;
+}
+
+.verification-code{
+    text-align: center;
+    font-size: 150%;
+}

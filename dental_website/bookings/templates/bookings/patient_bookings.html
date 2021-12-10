@@ -1,0 +1,33 @@
+{% extends "patient_base.html" %}
+
+{% block content %}
+<div class="bookings-view-header-1">My Bookings</div>
+
+    {% if bookings %}
+    <ul class="list-group list-group-flush">
+      {% for booking in bookings %}
+      <li class="list-group-item">
+        <a href="{% url 'bookings:patient-booking-detail' booking.pk %}">{{booking.title}}</a>
+      </li>
+      {% endfor %}
+    </ul class="list-group list-group-flush">
+    {% else %}
+    <div class="user-info-booking-view"
+      <p>{{user.first_name}}, you currently have no bookings scheduled.</p>
+    {% endif %}
+
+    <div class="bookings-view-header-2">Unapproved Bookings</div>
+
+    {% if unapproved %}
+    <ul class="list-group list-group-flush">
+      {% for b in unapproved %}
+      <li class="list-group-item">
+        <a href="{% url 'bookings:patient-booking-detail' b.pk %}">{{b.title}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="booking-view-ending">
+      <p>{{user.first_name}}, you currently have no unapproved bookings</p>
+    {% endif %}
+{% endblock %}

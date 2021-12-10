@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Verification</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/verification.css'%}">
+
+</head>
+<body>
+
+    <div class="header">
+        Please enter in your verification code to prove you are an authorised Staff member
+    </div>
+    
+
+    {% if form.errors %}
+    <h2>username or password not correct</h2>
+    {% endif %}
+
+
+    <div class="verification-code">
+
+        <form action="{% url 'verify' %}" method="POST">
+            {% csrf_token %}
+          {{form.as_p}}
+          <button class="btn btn-success" type="submit">Submit</button>
+    
+    
+        </form>
+
+    </div>
+    
+</body>
+</html>
+
+
+

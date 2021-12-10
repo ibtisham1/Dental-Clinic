@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Booking has been confirmed! </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/booking-confirmed.css'%}">
+</head>
+<body>
+    <p>Your Application for a booking has been sent! </p>
+    <p>Please await an email/call from one of our receptionists</p>
+    <div class="button">
+        <a class="btn btn-success btn-lg" href="{% url 'patient_home' %}">Home</a>
+    </div>
+ 
+
+
+</body>
+</html>

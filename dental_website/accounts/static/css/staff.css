@@ -1,0 +1,31 @@
+body{
+    background-image: url('verification-image.png');
+    background-size: cover;
+}
+
+
+.search-booking-bar{
+    padding: 10px;
+}
+
+.search-appointment-bar{
+    padding: 10px;
+}
+
+.search-patient-bar{
+    padding: 10px;
+}
+
+.header{
+    font-size: 300%;
+    text-align: center;
+}
+
+.subtitle{
+    font-size: 200%;
+    text-align: center;
+}
+
+.information{
+    text-align: center;
+}

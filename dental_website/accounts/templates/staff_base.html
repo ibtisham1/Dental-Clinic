@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>Dental Clinic</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/staff.css' %}">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        {% block sidebar %}
+        <table class="table table-striped">
+
+         <tr>
+            <td>
+              <br>
+              <a class="btn btn-success btn-lg btn-block" href="{% url 'home' %}">Home</a>
+          
+            </td>
+        </tr>
+
+        <tr>
+          <td>
+            <a class="btn btn-success btn-lg btn-block" href="{% url 'patient-list' %}">Patient List</a>
+            
+          </td>
+        </tr>
+
+
+        {% if user.is_authenticated %}
+          {% if role == "receptionist" %}
+            <tr>
+              <td>
+                <a class="btn btn-success btn-lg btn-block" href="{% url 'bookings:receptionist-list' %}">Bookings List</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <a class="btn btn-success btn-lg btn-block" href="{% url 'add-patient' %}">Add Patient</a>
+              </td>
+            </tr>
+
+          {% elif role == "dentist" %}
+
+            <tr>
+              <td>
+                <a class="btn btn-success btn-lg btn-block" href="{% url 'bookings:staff-booking' %}">All Bookings</a>
+              </td>
+            </tr>
+
+          {% else %}
+          
+            <tr>
+              <td>
+                <a class="btn btn-success btn-lg btn-block" href="{% url 'bookings:staff-booking' %}">All Assigned Bookings</a>
+              </td>
+            </tr>
+
+
+          {% endif %}
+        {% endif %}
+
+        {% block sideblock %} {% endblock %}
+          
+        </table>
+
+
+        {% if user.is_authenticated %}
+          {% if role == "receptionist" %}
+            <div class="search-booking-bar">
+              <form action="{% url 'search_receptionist' %}" method="get">
+                <input name="q" type="text" placeholder="Search All Bookings...">
+            </form>
+            <br>
+            </div>
+          
+          {% else %}
+            <div class="search-appointment-bar">
+              <form action="{% url 'search_staff' %}" method="get">
+                <input  name="q" type="text" placeholder="Search Appointments...">
+              </form>
+              <br>
+            </div>
+          
+
+          {% endif %}
+
+          <div class="search-patient-bar">
+            <form action="{% url 'search_people' %}" method="get">
+              <input name="q" type="text" placeholder="Search Patients...">
+            </form>
+            <br>
+          </div>
+
+
+        {% endif %}
+
+        {% endblock %}
+
+
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+      {% block pagination %}
+        {% if is_paginated %}
+            <div class="pagination">
+                <span class="page-links">
+                    {% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+                    <span class="page-current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+</html>

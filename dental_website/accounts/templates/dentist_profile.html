@@ -1,0 +1,9 @@
+{% extends "patient_base.html" %}
+
+{% block content %}
+  <h1>{{dentist.user.first_name}} {{dentist.user.last_name}}</h1>
+  <br></br>
+  <p><strong>Contact Number:</strong> {{dentist.user.phone_number}}</p>
+  <p><strong>Info:</strong> {{dentist.info}}</p>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+body{
+    background-image: url('doctor-patient.png');
+    background-size: cover;
+}
+
+.form{
+    text-align: left;
+    float: left;
+    padding: 30px;
+}

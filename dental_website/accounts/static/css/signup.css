@@ -1,0 +1,12 @@
+body {
+    background-image: url('signup-image.png');
+}
+
+.buttons{
+    padding:350px;
+    text-align: center;
+}
+
+h2{
+    font-size: 400%;
+}

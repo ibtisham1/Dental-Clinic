@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/topBarStyle.css'%}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="homepage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic Site</title>
+</head>
+<body style="background-color:skyblue"></body>
+{% block sidebar %}
+<div class="topnav">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/topBarStyle.css'%}">
+  <a class="active" href="{% url 'home' %}">Home</a>
+  <!--put my bookings link-->
+ 
+  <div class="topnav-right">
+           <a class="active" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+           {% csrf_token %}
+
+  </div>
+</div> 
+{% endblock %}
+<div class="som3">
+    <backC><BorderC>Booking Confirmed</BorderC></backC>
+    
+    </div>
+
+
+
+
+</html>

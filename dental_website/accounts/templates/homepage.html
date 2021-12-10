@@ -1,0 +1,22 @@
+{% load static %}
+    <!--<link rel="stylesheet" href="{% static 'css/topBarStyle.css'%}"> -->
+    <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+{% block content %}
+
+<body>
+
+</body>  
+
+
+<div class="homepage">
+  <h1>Uncle Sam's Dental Clinic</h1>
+  <hr noshade="">
+</div>
+
+<div class="buttons">
+  <a class="signup-button" href="{% url 'signup' %}">Sign Up</a>
+  <br>
+  <a class="login-button" href="{% url 'login'%}?next={{request.path}}">Login</a>
+  {% csrf_token %}
+</div>
+{% endblock %}

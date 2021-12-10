@@ -1,0 +1,19 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+    <h1>{{patient_first}} {{patient_last}}</h1>
+    <h2>Upcoming Bookings</h2>
+
+
+    {% if booking_list %}
+    <ul>
+      {% for booking in booking_list %}
+      <li>{{booking.title}}:
+        <a href="{% url 'bookings:staff-booking-detail' booking.pk %}">Booking with {{booking.patient}} at {{booking.date}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>Sorry {{lastname}}, it appears this Patient has no scheduled bookings with the clinic.</p>
+    {% endif %}
+{% endblock %}

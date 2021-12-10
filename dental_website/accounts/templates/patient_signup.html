@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Signup Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/patient_signup.css'%}">
+</head>
+<body>
+<!--Rerences to ajax placed in viewspy-->
+<!--“””  *************************************************************************************
+*	Title: How to  worth with AJAX Request with Django
+*	Author: Vitor Freitas
+*	Date: 19th November, 2020
+*	Code version: None
+*	Availability: https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html
+*
+********************************************************************************* “””
+-->
+<div class="form">
+    <form action="{% url 'patient_signup' %}" method="POST" novalidate>
+        {% csrf_token %}
+        {{form.as_ul}}
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+      $("#id_username").change(function () {
+          console.log( $(this).val() );
+        var username = $(this).val();
+        $.ajax({
+          url: "{% url 'username-val' %}",
+          data: {
+            'username': username
+          },
+          dataType: 'json',
+          success: function (data) {
+            if (data.existing) {
+              alert("This username has already been taken");
+            }
+          }
+        });
+  
+      });
+      $("#id_email").change(function () {
+          console.log( $(this).val() );
+        var email = $(this).val();
+  
+        $.ajax({
+          url: "{% url 'email-val' %}",
+          data: {
+            'email': email
+          },
+          dataType: 'json',
+          success: function (data) {
+            if (data.existing) {
+              alert("This email has already been taken");
+            }
+          }
+        });
+  
+      });
+    </script>
+        <input class="btn btn-success btn-lg" type="submit" value="signup" class="btn btn-block btn-primary">
+    </form>
+</div>
+
+</body>
+</html>

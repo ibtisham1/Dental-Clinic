@@ -1,0 +1,21 @@
+{% extends "patient_base.html" %}
+
+{% block content %}
+<div class="dental-view-header">Dentist List</div>
+<div class="dental-view-subtitle">Here is a list of our Dentist's</div>
+<div class="dental-view-description">Click on their names for more personal information about our Dentists and their availabilities</div>
+        
+    {% if dentists %}
+    <ul class="list-group list-group-flush">
+      {% for dentist in dentists %}
+
+          <li class="list-group-item">
+            <a href="{% url 'dentist-detail' dentist.pk %}">Dr. {{dentist.user.first_name}} {{dentist.user.last_name}}</a>
+          </li>
+
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>I can't seem to find any dentists, did everyone quit? :-).</p>
+    {% endif %}
+{% endblock %}

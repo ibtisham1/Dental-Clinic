@@ -1,0 +1,10 @@
+body{
+    background-image: url('verification-image.png');
+    background-size: cover;
+}
+
+.add-patient-form{
+    text-align: left;
+    float: left;
+    padding: 30px;
+}

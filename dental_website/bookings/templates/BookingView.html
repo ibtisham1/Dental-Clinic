@@ -1,0 +1,16 @@
+{% extends "patient_base.html" %}
+
+{% block content %}
+
+
+<body class="booking-view-bg"></body>
+
+<div class="booking-form">
+    <form action="{% url 'bookings:Booking-View' %}" method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-success btn-lg" type='submit' value='Save' class="btn btn-block btn-success" />
+    </form>
+</div>
+
+{%endblock%}

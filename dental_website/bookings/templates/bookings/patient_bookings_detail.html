@@ -1,0 +1,16 @@
+{% extends "patient_base.html" %}
+
+{% block content %}
+  <h1>Title: {{ booking.title }}</h1>
+
+  <p><strong>Importance:</strong> {{ booking.importance }}</p>
+  <p><strong>Notes:</strong> {{ booking.notes }}</p>
+  <p><strong>ID:</strong> {{ booking.id }}</p>
+  <p><strong>Doctor:</strong> {{ booking.doctor.user.first_name }} {{ booking.doctor.user.last_name }}</p>
+  <p><strong>Length:</strong> {{ booking.length }}</p>
+  <p><strong>Date:</strong> {{ booking.date }}</p>
+
+  <a href="{% url 'bookings:Cancel-Booking' booking.id %}">{Cancel This Booking}</a>
+
+{% endblock %}
+

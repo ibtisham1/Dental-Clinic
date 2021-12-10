@@ -1,0 +1,14 @@
+{% extends "staff_base.html" %}
+
+{% block content %}
+  <h1>{{patient.user.first_name}} {{patient.user.last_name}}</h1>
+  <br></br>
+  <p><strong>Contact Number:</strong> {{patient.user.phone_number}}</p>
+<p><strong>Medical History:</strong> <a href="{% url 'bookings:patient-medical' patient.user.pk%}"> Click Here </a> </p>
+<p><strong>Upcoming Bookings:</strong> <a href="{% url 'bookings:patient-upcoming' patient.user.pk%}"> Click Here </a> </p>
+
+{% if role == 'receptionist' %}
+<li><a href="{% url 'bookings:create_booking' patient.user.pk %}"> Make Booking </a></li>
+{% endif %}
+
+{% endblock %}

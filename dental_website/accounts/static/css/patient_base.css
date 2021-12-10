@@ -1,0 +1,75 @@
+body{
+    background-image: url('doctor-patient.png');
+    background-size: cover;
+}
+
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.search-bar{
+    padding-left: 10px;
+    padding-top: 10px;
+   
+}
+.header{
+    text-align: center;
+    font-size: 400%;
+}
+
+.sub-title{
+    text-align: center;
+    font-size: 150%;
+}
+
+.description{
+    text-align: center;
+    font-size: 150%;
+}
+
+.dental-view-header{
+    padding-top: 5px;
+    font-size: 300%;
+}
+
+.dental-view-subtitle{
+    padding-top: 5px;
+    font-size: 200%;
+}
+
+.dental-view-description{
+    padding-top: 10px;
+    font-size: 150%;
+}
+
+.bookings-view-header-1{
+
+    padding-top: 5px;
+    font-size: 300%;
+
+}
+
+.bookings-view-header-2{
+    padding-top: 5px;
+    font-size: 250%;
+}
+
+.booking-view-ending{
+    font-size: 120%;
+}
+
+.user-info-booking-view{
+    font-size: 110%;
+}
+
+.booking-view-bg{
+    background-color: url('doctor-patient.png');
+    background-size: cover;
+}
+
+
+.booking-form{
+    padding-top: 30px;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Assistant</title>
+
+</head>
+<body>
+
+
+    <form action="{% url 'bookings:assign' booking.pk %}" method="POST">
+        {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit">Submit</button>
+
+
+    </form>
+</body>
+</html>
