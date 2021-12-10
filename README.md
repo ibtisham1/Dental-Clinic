@@ -1,5 +1,5 @@
-ELEC3609 Project:
-This is our dental clinic web service. It is split into 3 applications: 
+Project:
+This is a dental clinic web service. It is split into 3 applications: 
 Bookings, Accounts, Search. 
 
 For use of the local sql lite database for marking purposes
